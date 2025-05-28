@@ -4,7 +4,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const checkoutRoutes = require("./routes/checkoutRoute");
 const orderRoutes = require("./routes/orderRoute");
-const webhookRoutes = require("./routes/stripeWebhook");
 
 dotenv.config();
 
@@ -29,8 +28,6 @@ app.get("/api", (req, res) => {
 // Routes
 app.use("/api", checkoutRoutes);
 app.use("/api", orderRoutes);
-// STRIPE WEBHOOK
-app.post("/webhook", webhookRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

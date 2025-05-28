@@ -85,8 +85,8 @@ const createCheckoutSession = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID}&product_id=${productId}`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`,
+      success_url: `${process.env.CLIENT_URL_PRODUCTION}/success?session_id={CHECKOUT_SESSION_ID}&product_id=${productId}`,
+      cancel_url: `${process.env.CLIENT_URL_PRODUCTION}/cancel`,
       metadata: {
         productId,
         productName: product.name,

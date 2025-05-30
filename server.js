@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const checkoutRoutes = require("./routes/checkoutRoute");
 const orderRoutes = require("./routes/orderRoute");
+const productRoutes = require("./routes/productRoute");
 
 dotenv.config();
 
@@ -22,12 +23,13 @@ mongoose
 
 //health checking route
 app.get("/api", (req, res) => {
-  res.send(`welcome to http://localhost:${PORT}`);
+  res.send(`welcome to the API!`);
 });
 
 // Routes
 app.use("/api", checkoutRoutes);
 app.use("/api", orderRoutes);
+app.use("/api", productRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
